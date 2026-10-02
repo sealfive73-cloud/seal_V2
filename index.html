@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>홋카이도 가족여행 | 삿포로·아사히카와·노보리베쓰</title>
+  <style>
+    :root {
+      --cream: #fffaf0;
+      --cream-deep: #f5ead5;
+      --green: #174c3c;
+      --green-dark: #10382d;
+      --orange: #e8893a;
+      --orange-dark: #b95f1e;
+      --brown: #5d4432;
+      --ink: #252525;
+      --muted: #6d6d65;
+      --line: #e4d7c2;
+      --white: #ffffff;
+      --blue: #245f91;
+      --shadow: 0 12px 30px rgba(59, 48, 34, 0.10);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(232, 137, 58, 0.12), transparent 28rem),
+        var(--cream);
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--blue);
+      overflow-wrap: anywhere;
+    }
+
+    button,
+    .button {
+      min-height: 46px;
+      border: 0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    button:hover,
+    .button:hover {
+      filter: brightness(0.96);
+      transform: translateY(-1px);
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    summary:focus-visible {
+      outline: 4px solid rgba(232, 137, 58, 0.45);
+      outline-offset: 3px;
+    }
+
+    .button-primary {
+      color: var(--white);
+      background: var(--green);
+    }
+
+    .button-secondary {
+      color: var(--green-dark);
+      background: var(--cream-deep);
+    }
+
+    .button-orange {
+      color: var(--white);
+      background: var(--orange-dark);
+    }
+
+    .button-danger {
+      color: var(--white);
+      background: #9d3f35;
+    }
+
+    .button-small {
+      min-height: 38px;
+      padding: 7px 12px;
+      font-size: 0.92rem;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(16, 56, 45, 0.96), rgba(23, 76, 60, 0.88)),
+        var(--green);
+      border-bottom: 8px solid var(--orange);
+    }
+
+    .hero-inner {
+      min-height: 430px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 40px;
+      padding: 54px 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #ffd9a9;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.25;
+      color: var(--green-dark);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--white);
+      font-size: clamp(2rem, 5vw, 4.3rem);
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      margin: 0 0 20px;
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.25rem;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 22px 0 0;
+      color: #f9f3e8;
+      font-size: 1.08rem;
+    }
+
+    .snow-illustration {
+      min-height: 275px;
+      position: relative;
+      border-radius: 40% 40% 16px 16px;
+      background:
+        linear-gradient(180deg, transparent 0 45%, rgba(255,255,255,0.82) 45%),
+        linear-gradient(155deg, #8ab7cb, #e4f3f5 70%);
+      box-shadow: inset 0 -30px 0 rgba(255, 255, 255, 0.75);
+    }
+
+    .snow-illustration::before,
+    .snow-illustration::after {
+      content: "";
+      position: absolute;
+      bottom: 28px;
+      width: 0;
+      height: 0;
+      border-left: 75px solid transparent;
+      border-right: 75px solid transparent;
+      border-bottom: 155px solid #496f70;
+      filter: drop-shadow(0 10px 0 rgba(23, 76, 60, 0.18));
+    }
+
+    .snow-illustration::before {
+      left: 9%;
+    }
+
+    .snow-illustration::after {
+      right: 7%;
+      border-left-width: 105px;
+      border-right-width: 105px;
+      border-bottom-width: 190px;
+      border-bottom-color: #315f61;
+    }
+
+    .sun {
+      position: absolute;
+      top: 28px;
+      right: 34px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #ffd174;
+      box-shadow: 0 0 35px rgba(255, 209, 116, 0.7);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .notice {
+      margin: 24px auto;
+      padding: 17px 20px;
+      border-left: 6px solid var(--orange);
+      border-radius: 12px;
+      background: #fff2dc;
+      color: var(--brown);
+    }
+
+    main {
+      padding: 34px 0 70px;
+    }
+
+    section {
+      margin: 42px 0;
+      scroll-margin-top: 20px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: #e7f2eb;
+      color: var(--green-dark);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .status.candidate {
+      background: #fff0d8;
+      color: #8a4c10;
+    }
+
+    .status.uncertain {
+      background: #f2e8e8;
+      color: #7c3030;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: minmax(110px, 0.35fr) 1fr;
+      gap: 7px 14px;
+      margin: 14px 0 0;
+    }
+
+    .meta dt {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .meta dd {
+      margin: 0;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 22px 22px 22px 72px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-item::before {
+      content: attr(data-day);
+      position: absolute;
+      left: 18px;
+      top: 23px;
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--orange-dark);
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .timeline-item ul,
+    .card ul {
+      padding-left: 22px;
+      margin-bottom: 0;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 0;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #eef4ef;
+      color: var(--green-dark);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .tag.orange {
+      background: #fff0d8;
+      color: #8a4c10;
+    }
+
+    .comparison {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .comparison th,
+    .comparison td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .comparison th {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .comparison tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .scroll-table {
+      overflow-x: auto;
+      border-radius: 16px;
+    }
+
+    .source {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--line);
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .source strong {
+      color: var(--brown);
+    }
+
+    .map-actions,
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .map-actions .button {
+      background: #edf5f8;
+      color: #164c70;
+    }
+
+    .packing-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding: 18px;
+      border-radius: var(--radius);
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .progress-wrap {
+      flex: 1 1 230px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    progress {
+      display: block;
+      width: 100%;
+      height: 15px;
+      accent-color: var(--orange);
+    }
+
+    .packing-group {
+      margin-top: 20px;
+    }
+
+    .packing-group h3 {
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .packing-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .packing-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fffdf8;
+    }
+
+    .packing-item input {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 auto;
+      accent-color: var(--green);
+    }
+
+    .packing-item label {
+      cursor: pointer;
+    }
+
+    .packing-item.checked label {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer {
+      margin-top: 55px;
+      padding: 30px 0 50px;
+      background: var(--green-dark);
+      color: #edf5ee;
+    }
+
+    .footer h2,
+    .footer h3 {
+      color: var(--white);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 20;
+      right: 20px;
+      bottom: 20px;
+      max-width: min(420px, calc(100% - 40px));
+      padding: 14px 17px;
+      border-radius: 12px;
+      color: var(--white);
+      background: var(--green-dark);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(15px);
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 850px) {
+      .hero-inner,
+      .grid-2,
+      .grid-3,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .snow-illustration {
+        min-height: 220px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        font-size: 17px;
+      }
+
+      .container {
+        width: min(100% - 22px, 1180px);
+      }
+
+      .hero-inner {
+        padding: 38px 0;
+      }
+
+      .packing-list {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        padding-left: 22px;
+        padding-top: 70px;
+      }
+
+      .timeline-item::before {
+        left: 22px;
+        top: 20px;
+      }
+
+      .comparison {
+        min-width: 700px;
+      }
+
+      .scroll-table {
+        margin-right: -11px;
+      }
+
+      .section-heading {
+        display: block;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: #111;
+        font-size: 12pt;
+      }
+
+      .hero {
+        color: #111;
+        background: white;
+        border-bottom: 2px solid #111;
+      }
+
+      .hero-inner {
+        min-height: auto;
+        padding: 20px 0;
+        display: block;
+      }
+
+      .hero h1,
+      .hero p,
+      .hero .eyebrow {
+        color: #111;
+      }
+
+      .hero-actions,
+      .snow-illustration,
+      .packing-toolbar button,
+      .map-actions,
+      .card-actions,
+      .toast {
+        display: none !important;
+      }
+
+      .card,
+      .timeline-item,
+      .comparison {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      section {
+        margin: 25px 0;
+      }
+
+      a {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .packing-item {
+        break-inside: avoid;
+      }
+
+      .packing-item input {
+        display: none;
+      }
+
+      .packing-item label::after {
+        content: " — 미준비";
+        color: #777;
+        text-decoration: none;
+      }
+
+      .packing-item.checked label::after {
+        content: " — 준비 완료";
+        color: #111;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .footer {
+        color: #111;
+        background: white;
+        border-top: 2px solid #111;
+      }
+
+      .footer h2,
+      .footer h3 {
+        color: #111;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <p class="eyebrow">FAMILY WINTER TRIP · HOKKAIDO</p>
+        <h1>눈과 온천 사이,<br>홋카이도 가족여행</h1>
+        <p>
+          삿포로의 먹거리, 아사히야마 동물원, 노보리베쓰 온천과 설경을
+          중심으로 정리한 3박 4일 여행 계획입니다.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-orange" href="#schedule">일정 보기</a>
+          <button class="button button-secondary" type="button" onclick="sharePage()">여행 페이지 공유</button>
+          <button class="button button-secondary" type="button" onclick="window.print()">인쇄·PDF 저장</button>
+        </div>
+      </div>
+      <div class="snow-illustration" aria-label="눈 덮인 홋카이도를 표현한 장식 일러스트">
+        <span class="sun" aria-hidden="true"></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="notice">
+      <strong>공개 범위 안내</strong><br>
+      이 페이지는 가족이 공유할 수 있는 공개 웹페이지입니다. 실명, 전화번호, 예약번호,
+      항공권 번호, 상세 건강 정보는 포함하지 않았습니다. 현재 예약하지 않은 항목은
+      <strong>후보·미정·방문 전 확인</strong>으로 표시합니다.
+    </div>
+
+    <section id="overview">
+      <div class="section-heading">
+        <div>
+          <h2>여행 개요</h2>
+          <p>현재 확정한 조건과 아직 확인이 필요한 항목을 구분했습니다.</p>
+        </div>
+        <span class="status candidate">예약 전 후보 일정</span>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>여행 기본 정보</h3>
+          <dl class="meta">
+            <dt>여행 지역</dt>
+            <dd>삿포로·아사히카와·노보리베쓰</dd>
+            <dt>기간</dt>
+            <dd>3박 4일</dd>
+            <dt>우선 날짜</dt>
+            <dd>2027년 1월 16일~19일</dd>
+            <dt>인원</dt>
+            <dd>성인 2명, 자녀 만 4세·중2·고1</dd>
+            <dt>출발</dt>
+            <dd>대전·충청권 / 청주공항 직항 우선</dd>
+            <dt>이동</dt>
+            <dd>겨울철 렌터카 중심</dd>
+            <dt>예산</dt>
+            <dd>실속형, 상한 미정</dd>
+          </dl>
+        </article>
+
+        <article class="card">
+          <h3>항공·렌터카 조건</h3>
+          <dl class="meta">
+            <dt>출국편</dt>
+            <dd>청주공항 오전 출발 후보</dd>
+            <dt>도착</dt>
+            <dd>신치토세공항 오후 12시~2시 후보</dd>
+            <dt>귀국편</dt>
+            <dd>신치토세공항 현지 21:00 출발 후보</dd>
+            <dt>렌터카 반납</dt>
+            <dd>귀국 당일 신치토세공항</dd>
+            <dt>카시트</dt>
+            <dd>만 4세 자녀용 1개, 렌터카 업체 대여</dd>
+            <dt>확인 필요</dt>
+            <dd>운항일·운임·예약 가능 여부·카시트 규격</dd>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="section-heading">
+        <div>
+          <h2>날짜별 일정</h2>
+          <p>표시된 시간은 계획 시간이며 항공편·예약·영업을 보장하지 않습니다.</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item" data-day="1일">
+          <span class="status candidate">후보 일정</span>
+          <h3>1월 16일 토요일 · 신치토세공항 → 삿포로</h3>
+          <ul>
+            <li>청주공항 오전 출발 후보</li>
+            <li>신치토세공항 오후 12시~2시 도착 후보</li>
+            <li>입국·수하물 수령 후 렌터카 인수</li>
+            <li>만 4세 자녀용 카시트 장착 여부 확인</li>
+            <li>삿포로 숙소 이동 및 체크인 또는 짐 보관</li>
+            <li>시장·먹거리 지역 방문 후보</li>
+            <li>저녁 7시 전 라멘·우동 식사 우선</li>
+            <li>늦은 도착이면 시장 방문을 줄이고 숙소 주변 식사로 변경</li>
+          </ul>
+          <div class="tag-list">
+            <span class="tag">삿포로 1박</span>
+            <span class="tag orange">시장·먹거리</span>
+            <span class="tag">라멘·우동</span>
+          </div>
+        </article>
+
+        <article class="timeline-item" data-day="2일">
+          <span class="status candidate">운영 재확인</span>
+          <h3>1월 17일 일요일 · 아사히야마 동물원 → 아사히카와</h3>
+          <ul>
+            <li>아사히야마 동물원 개장 시각에 맞춰 이동</li>
+            <li>관람시간 확보를 최우선으로 계획</li>
+            <li>펭귄 산책은 당일 운영 여부와 시간을 현장에서 확인</li>
+            <li>눈 상태·동물 상태·운영 상황에 따라 변경 또는 취소 가능</li>
+            <li>관람 후 아사히카와 숙소 이동</li>
+            <li>아사히카와 숙소는 동물원 인근과 아사히카와역 주변을 비교</li>
+          </ul>
+          <div class="tag-list">
+            <span class="tag">아사히야마 동물원</span>
+            <span class="tag orange">펭귄 산책 확인</span>
+            <span class="tag">아사히카와 1박</span>
+          </div>
+          <div class="source">
+            <strong>확인 상태:</strong>
+            동물원 운영시간과 펭귄 산책은 여행 직전 공식 안내를 다시 확인합니다.
+          </div>
+        </article>
+
+        <article class="timeline-item" data-day="3일">
+          <span class="status candidate">후보 일정</span>
+          <h3>1월 18일 월요일 · 아사히카와 → 노보리베쓰</h3>
+          <ul>
+            <li>아사히카와 출발</li>
+            <li>노보리베쓰 온천 지역 이동</li>
+            <li>숙소 체크인</li>
+            <li>온천과 설경 감상</li>
+            <li>지옥계곡 등 대표 활동 후보</li>
+            <li>겨울 산책로 상태와 운영 여부 방문 전 확인</li>
+            <li>저녁은 숙소 뷔페 우선</li>
+          </ul>
+          <div class="tag-list">
+            <span class="tag">노보리베쓰 1박</span>
+            <span class="tag orange">온천·설경</span>
+            <span class="tag">숙소 뷔페</span>
+          </div>
+        </article>
+
+        <article class="timeline-item" data-day="4일">
+          <span class="status uncertain">항공편 미정</span>
+          <h3>1월 19일 화요일 · 노보리베쓰 → 신치토세공항</h3>
+          <ul>
+            <li>노보리베쓰 출발</li>
+            <li>겨울철 도로 상황을 고려해 충분한 여유 확보</li>
+            <li>신치토세공항에서 렌터카 반납</li>
+            <li>카시트 반납과 차량 확인</li>
+            <li>국제선 탑승 여유시간 확보</li>
+            <li>21:00 출발 항공편은 후보 상태</li>
+            <li>AOAO SAPPORO는 시간이 충분할 때만 조건부 검토</li>
+          </ul>
+          <div class="tag-list">
+            <span class="tag">공항 반납</span>
+            <span class="tag orange">저녁 출발 후보</span>
+            <span class="tag">AOAO 조건부</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="route">
+      <div class="section-heading">
+        <div>
+          <h2>동선 비교</h2>
+          <p>현재는 아사히야마 관람시간과 펭귄 산책을 중시해 안 B를 우선 검토합니다.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <span class="status candidate">비교안 A</span>
+          <h3>삿포로 2박 + 노보리베쓰 1박</h3>
+          <p>숙소가 두 지역으로 단순하지만, 아사히야마 동물원을 삿포로에서 왕복해야 합니다.</p>
+          <ul>
+            <li>숙소 관리가 단순함</li>
+            <li>시장·먹거리와 OMS 일정에 유리</li>
+            <li>동물원 방문일 왕복 이동 부담 가능</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="status">우선 검토안 B</span>
+          <h3>삿포로 1박 + 아사히카와 1박 + 노보리베쓰 1박</h3>
+          <p>동물원 관람 후 아사히카와에서 쉬어 관람시간 확보에 유리할 가능성이 있습니다.</p>
+          <ul>
+            <li>아사히야마 관람 후 귀환 부담 감소</li>
+            <li>펭귄 산책 시간에 맞추기 쉬움</li>
+            <li>숙소가 세 지역으로 나뉨</li>
+            <li>1월 18일 장거리 이동은 겨울철 재확인</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="notice">
+        <strong>이동시간 주의:</strong>
+        페이지에서는 실제 경로·거리·소요시간을 계산하거나 보장하지 않습니다.
+        각 구간은 Google 지도에서 출발 전 직접 확인해 주세요.
+      </div>
+
+      <div class="map-actions">
+        <a class="button" target="_blank" rel="noopener noreferrer"
+          href="https://www.google.com/maps/search/?api=1&query=%EC%95%84%EC%82%AC%ED%9E%88%EC%95%BC%EB%A7%88%20%EB%8F%99%EB%AC%BC%EC%9B%90%20%EC%95%84%EC%82%AC%ED%9E%88%EC%B9%B4%EC%99%80">
+          아사히야마 동물원 지도 보기
+        </a>
+        <a class="button" target="_blank" rel="noopener noreferrer"
+          href="https://www.google.com/maps/search/?api=1&query=%EB%85%B8%EB%B3%B4%EB%A6%AC%EB%B2%A0%EC%93%B0%20%EC%98%A8%EC%B2%9C%20%EC%A7%80%EC%97%AD">
+          노보리베쓰 온천 지도 보기
+        </a>
+        <a class="button" target="_blank" rel="noopener noreferrer"
+          href="https://www.google.com/maps/dir/?api=1&destination=%EC%8B%A0%EC%B9%98%ED%86%A0%EC%84%B8%EA%B3%B5%ED%95%AD">
+          신치토세공항 길찾기
+        </a>
+      </div>
+    </section>
+
+    <section id="restaurants">
+      <div class="section-heading">
+        <div>
+          <h2>식당·먹거리 후보</h2>
+          <p>선택 전 후보입니다. 메뉴·영업·좌석은 방문 전 다시 확인합니다.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <span class="status candidate">후보 선택 상태</span>
+          <h3>OMS 오므라이스 오도리 BISSE점</h3>
+          <p>삿포로 시내 저녁 후보입니다. 아이부터 고등학생까지 메뉴 선택을 비교하기 쉬운 서양식 메뉴 후보로 제안되었습니다.</p>
+          <dl class="meta">
+            <dt>지역</dt>
+            <dd>오도리</dd>
+            <dt>가격</dt>
+            <dd>공식 가격 미확인</dd>
+            <dt>확인일</dt>
+            <dd>2026년 10월 2일 기준 자료</dd>
+            <dt>재확인</dt>
+            <dd>2027년 1월 영업일·메뉴·가격·5명 좌석·해산물 성분</dd>
+          </dl>
+          <div class="card-actions">
+            <a class="button button-small button-secondary" target="_blank" rel="noopener noreferrer"
+              href="https://www.google.com/maps/search/?api=1&query=OMS%20%EC%98%A4%EB%AF%80%EB%9D%BC%EC%9D%B4%EC%8A%A4%20%EC%98%A4%EB%8F%84%EB%A6%AC%20BISSE%EC%A0%90%20%EC%82%BF%ED%8F%AC%EB%A1%9C">
+              OMS 지도 보기
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="status candidate">도착일 후보</span>
+          <h3>라멘 삿포로 이치류안</h3>
+          <p>가족 5명 좌석 정보가 비교적 명확한 삿포로역 인근 라멘 후보입니다.</p>
+          <dl class="meta">
+            <dt>확인 가격대</dt>
+            <dd>약 1,200~2,000엔 안내</dd>
+            <dt>좌석</dt>
+            <dd>최대 6명·개인실 최대 6명 안내</dd>
+            <dt>우선 조건</dt>
+            <dd>가족 5명 좌석, 어린이용 순한 맛, 가격</dd>
+            <dt>재확인</dt>
+            <dd>2027년 1월 휴무·순한 메뉴·해산물 육수·주차</dd>
+          </dl>
+          <div class="card-actions">
+            <a class="button button-small button-secondary" target="_blank" rel="noopener noreferrer"
+              href="https://www.google.com/maps/search/?api=1&query=%EB%9D%BC%EB%A9%98%20%EC%82%BF%ED%8F%AC%EB%A1%9C%20%EC%9D%B4%EC%B9%98%EB%A5%98%EC%95%88%20%EC%82%BF%ED%8F%AC%EB%A1%9C%EC%97%AD">
+              이치류안 지도 보기
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="status candidate">도착일 후보</span>
+          <h3>테시카가 라멘 삿포로 라멘요코초점</h3>
+          <p>스스키노와 라멘요코초 동선에 연결하기 쉬운 실속형 후보입니다.</p>
+          <dl class="meta">
+            <dt>확인 가격대</dt>
+            <dd>약 1,000~1,200엔 안내</dd>
+            <dt>좌석</dt>
+            <dd>최대 15명 안내</dd>
+            <dt>우선 조건</dt>
+            <dd>저렴한 가격, 가족 좌석</dd>
+            <dt>재확인</dt>
+            <dd>주말 대기·어린이 메뉴·해산물 육수·토핑</dd>
+          </dl>
+          <div class="card-actions">
+            <a class="button button-small button-secondary" target="_blank" rel="noopener noreferrer"
+              href="https://www.google.com/maps/search/?api=1&query=%ED%85%8C%EC%8B%9C%EC%B9%B4%EA%B0%80%20%EB%9D%BC%EB%A9%98%20%EC%82%BF%ED%8F%AC%EB%A1%9C%20%EB%9D%BC%EB%A9%98%EC%9A%94%EC%BD%94%EC%B4%88">
+              테시카가 지도 보기
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="status candidate">도착일 후보</span>
+          <h3>아지노 산페이</h3>
+          <p>오도리와 시장·먹거리 동선에 연결할 수 있는 전통 삿포로 미소 라멘 후보입니다.</p>
+          <dl class="meta">
+            <dt>음식</dt>
+            <dd>삿포로 미소 라멘</dd>
+            <dt>가격</dt>
+            <dd>공식 가격 미확인</dd>
+            <dt>우선 조건</dt>
+            <dd>대표성·시장 동선</dd>
+            <dt>재확인</dt>
+            <dd>가격·5명 좌석·어린이 메뉴·해산물 육수</dd>
+          </dl>
+          <div class="card-actions">
+            <a class="button button-small button-secondary" target="_blank" rel="noopener noreferrer"
+              href="https://www.google.com/maps/search/?api=1&query=%EC%95%84%EC%A7%80%EB%85%B8%20%EC%82%B0%ED%8E%98%EC%9D%B4%20%EC%82%BF%ED%8F%AC%EB%A1%9C">
+              아지노 산페이 지도 보기
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="grid grid-2" style="margin-top: 18px;">
+        <article class="card">
+          <span class="status candidate">노보리베쓰 저녁 후보</span>
+          <h3>다이이치 타키모토칸</h3>
+          <p>고기 메뉴 다양성·대욕장·뷔페를 중시할 때 우선 비교하는 숙소 후보입니다.</p>
+          <dl class="meta">
+            <dt>확인 내용</dt>
+            <dd>5명 객실, 뷔페, 대욕장, 별도 라멘 식당 후보</dd>
+            <dt>가격</dt>
+            <dd>2027년 1월 공식 가격 미확인</dd>
+            <dt>주차</dt>
+            <dd>공식 조건 재확인</dd>
+            <dt>재확인</dt>
+            <dd>고기·라멘·우동·어린이 메뉴·해산물 조리환경</dd>
+          </dl>
+          <div class="card-actions">
+            <a class="button button-small button-secondary" target="_blank" rel="noopener noreferrer"
+              href="https://www.google.com/maps/search/?api=1&query=%EB%8B%A4%EC%9D%B4%EC%9D%B4%EC%B9%98%20%ED%83%80%ED%82%A4%EB%AA%A8%ED%86%A0%EC%B9%B8%20%EB%85%B8%EB%B3%B4%EB%A6%AC%EB%B2%A0%EC%93%B0">
+              타키모토칸 지도 보기
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="status candidate">노보리베쓰 저녁 후보</span>
+          <h3>노보리베쓰 만세이카쿠</h3>
+          <p>뷔페·조식·어린이 식사 요청 가능 여부를 함께 비교하는 숙소 후보입니다.</p>
+          <dl class="meta">
+            <dt>확인 내용</dt>
+            <dd>뷔페, 조식, 어린이 식사 요청 후보</dd>
+            <dt>가격</dt>
+            <dd>2027년 1월 공식 가격 미확인</dd>
+            <dt>주차</dt>
+            <dd>이용 조건 재확인</dd>
+            <dt>재확인</dt>
+            <dd>고기 메뉴·라멘·우동·5명 객실·주차·해산물 조리환경</dd>
+          </dl>
+          <div class="card-actions">
+            <a class="button button-small button-secondary" target="_blank" rel="noopener noreferrer"
+              href="https://www.google.com/maps/search/?api=1&query=%EB%85%B8%EB%B3%B4%EB%A6%AC%EB%B2%A0%EC%93%B0%20%EB%A7%8C%EC%84%B8%EC%9D%B4%EC%B9%B4%EC%BF%A0">
+              만세이카쿠 지도 보기
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="source">
+        <strong>음식 제한:</strong>
+        가족 중 한 분만 회가 가능합니다. 다른 가족의 해산물 섭취 범위와
+        해산물 육수·소스·조리도구 공유 여부는 장소별 방문 전 확인 항목입니다.
+      </div>
+    </section>
+
+    <section id="lodging">
+      <div class="section-heading">
+        <div>
+          <h2>숙소 비교 기준</h2>
+          <p>실제 예약 전 참고용입니다. 현재 예약된 숙소는 없습니다.</p>
+        </div>
+      </div>
+
+      <div class="scroll-table">
+        <table class="comparison">
+          <thead>
+            <tr>
+              <th>지역</th>
+              <th>공식 후보</th>
+              <th>우선 조건</th>
+              <th>가격 상태</th>
+              <th>재확인</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>삿포로</td>
+              <td>Sapporo View Hotel<br>The Royal Park Canvas<br>Sapporo Tokyu REI<br>Comfort Hotel Sapporo Susukino</td>
+              <td>시장·먹거리 접근성, 5명 또는 2객실, 무료·저렴한 주차</td>
+              <td>2027년 1월 가격 미확인<br>현재 공식 참고 가격만 기록 가능</td>
+              <td>객실별 총액, 조식, 주차, 취소조건</td>
+            </tr>
+            <tr>
+              <td>아사히카와</td>
+              <td>동물원 인근·아사히카와역 주변 공식 숙소</td>
+              <td>동물원 접근성, 조식 뷔페·오전 7시까지 허용, 대욕장</td>
+              <td>공식 가격 미확인</td>
+              <td>5명·2객실, 주차, 조식 시작시각</td>
+            </tr>
+            <tr>
+              <td>노보리베쓰</td>
+              <td>다이이치 타키모토칸<br>노보리베쓰 만세이카쿠</td>
+              <td>고기 메뉴, 라멘·우동, 어린이 메뉴, 온천</td>
+              <td>공식 가격 미확인</td>
+              <td>조식·석식·주차 포함 총액</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="notice">
+        공식 홈페이지에서 목표 날짜 가격이 표시되지 않는 숙소는 현재 표시되는 참고 가격을
+        검색 기준일과 함께 기록할 수 있습니다. 참고 가격은 2027년 1월 확정 요금이 아닙니다.
+      </div>
+    </section>
+
+    <section id="packing">
+      <div class="section-heading">
+        <div>
+          <h2>준비물 체크</h2>
+          <p>체크 상태는 이 브라우저에 저장됩니다. 가족 간 자동 동기화는 되지 않습니다.</p>
+        </div>
+      </div>
+
+      <div class="packing-toolbar">
+        <div class="progress-wrap">
+          <div class="progress-label">
+            <span id="progressText">0/30 완료</span>
+            <span id="progressPercent">0%</span>
+          </div>
+          <progress id="progressBar" value="0" max="30" aria-label="준비물 완료율"></progress>
+        </div>
+        <div class="card-actions">
+          <button class="button button-secondary button-small" type="button" onclick="resetChecklist()">체크 초기화</button>
+          <button class="button button-orange button-small" type="button" onclick="window.print()">인쇄·PDF</button>
+        </div>
+      </div>
+
+      <div id="storageNotice" class="notice" hidden></div>
+
+      <div class="packing-group">
+        <h3>개인 준비물</h3>
+        <ul class="packing-list" id="personalPacking"></ul>
+      </div>
+
+      <div class="packing-group">
+        <h3>공통 준비물</h3>
+        <ul class="packing-list" id="commonPacking"></ul>
+      </div>
+
+      <div class="packing-group">
+        <h3>겨울·활동용 준비물</h3>
+        <ul class="packing-list" id="activityPacking"></ul>
+      </div>
+    </section>
+
+    <section id="uncertain">
+      <div class="section-heading">
+        <div>
+          <h2>미정·방문 전 확인</h2>
+          <p>확인되지 않은 항목은 여행 전에 다시 확인해 주세요.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>항공·이동</h3>
+          <ul>
+            <li>2027년 1월 16일 청주공항 직항 운항 여부</li>
+            <li>실제 출발·도착 시각과 운임</li>
+            <li>1월 19일 21:00 귀국편 판매 여부</li>
+            <li>겨울철 이동시간과 도로 상태</li>
+            <li>렌터카 카시트의 만 4세 규격과 재고</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>숙소·식사</h3>
+          <ul>
+            <li>삿포로·아사히카와·노보리베쓰 실제 가격</li>
+            <li>5명 1객실과 2객실 총액</li>
+            <li>조식·석식·주차 포함 여부</li>
+            <li>라멘·우동의 어린이용 순한 메뉴</li>
+            <li>해산물 육수·소스·교차 조리 여부</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>활동 운영</h3>
+          <ul>
+            <li>아사히야마 동물원 운영시간</li>
+            <li>펭귄 산책 당일 운영 여부와 시간</li>
+            <li>노보리베쓰 지옥계곡 산책로 상태</li>
+            <li>온천·설경 관련 운영 여부</li>
+            <li>AOAO SAPPORO 귀국일 방문 가능 여부</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>수족관 관련 정정</h3>
+          <p>
+            신치토세공항 내 수족관은 이 페이지에서 확정하지 않습니다.
+            AOAO SAPPORO는 신치토세공항 시설이 아니라 삿포로 시내 시설 후보이며,
+            귀국일 시간 여유가 있을 때만 조건부로 검토합니다.
+          </p>
+          <a class="button button-secondary button-small" target="_blank" rel="noopener noreferrer"
+            href="https://www.google.com/maps/search/?api=1&query=AOAO%20SAPPORO%20%EC%82%BF%ED%8F%AC%EB%A1%9C">
+            AOAO SAPPORO 지도 보기
+          </a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>가족 여행 메모</h2>
+        <p>
+          이 페이지는 예약 기록이 아니라 가족이 함께 확인하는 여행 계획입니다.
+          날짜·가격·영업·운영 여부가 바뀔 수 있으므로 출발 전 공식 자료를 다시 확인하세요.
+        </p>
+      </div>
+      <div>
+        <h3>저장·공유 안내</h3>
+        <ul>
+          <li>체크 상태는 현재 브라우저에만 저장됩니다.</li>
+          <li>다른 가족의 기기와 자동 동기화되지 않습니다.</li>
+          <li>file: 환경에서는 저장이 보장되지 않을 수 있습니다.</li>
+          <li>공유는 GitHub Pages에 게시한 HTTPS 주소에서 진행하세요.</li>
+          <li>인쇄·PDF는 체크 복원용 파일이 아니라 읽는 기록입니다.</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    "use strict";
+
+    const TRIP_ID = "sapporo-family-2027";
+    const STORAGE_KEY = TRIP_ID + ":/packing";
+
+    const packingItems = {
+      personal: [
+        ["p01", "성인 1 겨울 외투"],
+        ["p02", "성인 2 겨울 외투"],
+        ["p03", "만 4세 자녀 방한복"],
+        ["p04", "중학생 자녀 방한복"],
+        ["p05", "고등학생 자녀 방한복"],
+        ["p06", "가족별 여권"],
+        ["p07", "개인 상비약"],
+        ["p08", "개인 세면도구"]
+      ],
+      common: [
+        ["p09", "여행 서류·항공권 확인 자료"],
+        ["p10", "렌터카 예약 확인 자료"],
+        ["p11", "휴대전화 충전기"],
+        ["p12", "보조배터리"],
+        ["p13", "해외 결제 수단"],
+        ["p14", "일본 엔화"],
+        ["p15", "물티슈·휴지"],
+        ["p16", "아이 간식"],
+        ["p17", "접이식 우산"],
+        ["p18", "작은 가방"],
+        ["p19", "가족용 비닐봉투"]
+      ],
+      activity: [
+        ["p20", "방수 신발"],
+        ["p21", "미끄럼 방지용품"],
+        ["p22", "방한 장갑"],
+        ["p23", "목도리 또는 넥워머"],
+        ["p24", "귀마개 또는 방한 모자"],
+        ["p25", "핫팩"],
+        ["p26", "보습제"],
+        ["p27", "만 4세 자녀용 여벌 옷"],
+        ["p28", "렌터카 카시트 확인 자료"],
+        ["p29", "차량용 휴대전화 거치대"],
+        ["p30", "차량용 충전기"]
+      ]
+    };
+
+    let checkedItems = {};
+    let storageAvailable = true;
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3200);
+    }
+
+    function getAllPackingIds() {
+      return Object.values(packingItems).flat().map(item => item[0]);
+    }
+
+    function loadChecklist() {
+      try {
+        const raw = window.localStorage.getItem(STORAGE_KEY);
+        if (!raw) {
+          checkedItems = {};
+          return;
+        }
+
+        const parsed = JSON.parse(raw);
+
+        if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+          throw new Error("잘못된 저장 형식");
+        }
+
+        const validIds = new Set(getAllPackingIds());
+        checkedItems = {};
+
+        Object.keys(parsed).forEach(id => {
+          if (validIds.has(id) && parsed[id] === true) {
+            checkedItems[id] = true;
+          }
+        });
+      } catch (error) {
+        storageAvailable = false;
+        checkedItems = {};
+        const notice = document.getElementById("storageNotice");
+        notice.hidden = false;
+        notice.textContent =
+          "저장된 체크 데이터를 읽지 못했습니다. 체크와 인쇄는 계속 사용할 수 있지만, 새로고침 후 상태가 유지되지 않을 수 있습니다.";
+      }
+    }
+
+    function saveChecklist() {
+      if (!storageAvailable) {
+        return;
+      }
+
+      try {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedItems));
+      } catch (error) {
+        storageAvailable = false;
+        const notice = document.getElementById("storageNotice");
+        notice.hidden = false;
+        notice.textContent =
+          "브라우저 저장이 차단되었거나 저장 공간이 부족합니다. 체크와 인쇄는 계속 사용할 수 있습니다.";
+      }
+    }
+
+    function renderPackingList(groupName, elementId) {
+      const target = document.getElementById(elementId);
+      target.innerHTML = "";
+
+      packingItems[groupName].forEach(([id, label]) => {
+        const li = document.createElement("li");
+        li.className = "packing-item" + (checkedItems[id] ? " checked" : "");
+
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.id = id;
+        input.checked = Boolean(checkedItems[id]);
+        input.setAttribute("aria-describedby", id + "-label");
+
+        const labelElement = document.createElement("label");
+        labelElement.id = id + "-label";
+        labelElement.htmlFor = id;
+        labelElement.textContent = label;
+
+        input.addEventListener("change", () => {
+          if (input.checked) {
+            checkedItems[id] = true;
+            li.classList.add("checked");
+          } else {
+            delete checkedItems[id];
+            li.classList.remove("checked");
+          }
+
+          saveChecklist();
+          updateProgress();
+        });
+
+        li.appendChild(input);
+        li.appendChild(labelElement);
+        target.appendChild(li);
+      });
+    }
+
+    function renderPacking() {
+      renderPackingList("personal", "personalPacking");
+      renderPackingList("common", "commonPacking");
+      renderPackingList("activity", "activityPacking");
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const total = getAllPackingIds().length;
+      const completed = getAllPackingIds().filter(id => checkedItems[id]).length;
+      const percent = total === 0 ? 0 : Math.round((completed / total) * 100);
+
+      document.getElementById("progressText").textContent =
+        completed + "/" + total + " 완료";
+      document.getElementById("progressPercent").textContent = percent + "%";
+
+      const progressBar = document.getElementById("progressBar");
+      progressBar.max = total;
+      progressBar.value = completed;
+    }
+
+    function resetChecklist() {
+      const confirmed = window.confirm(
+        "이 여행의 준비물 체크 상태를 모두 초기화할까요?"
+      );
+
+      if (!confirmed) {
+        showToast("초기화를 취소했습니다.");
+        return;
+      }
+
+      checkedItems = {};
+
+      try {
+        window.localStorage.removeItem(STORAGE_KEY);
+      } catch (error) {
+        storageAvailable = false;
+      }
+
+      renderPacking();
+      showToast("준비물 체크 상태를 초기화했습니다.");
+    }
+
+    async function sharePage() {
+      const currentUrl = window.location.href;
+
+      if (window.location.protocol === "file:") {
+        showToast("GitHub Pages에 게시한 뒤 HTTPS 주소에서 공유해 주세요.");
+        return;
+      }
+
+      if (!window.isSecureContext || !navigator.clipboard) {
+        showCopyFallback(currentUrl);
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(currentUrl);
+        showToast("현재 페이지 주소를 복사했습니다.");
+      } catch (error) {
+        showCopyFallback(currentUrl);
+      }
+    }
+
+    function showCopyFallback(url) {
+      const fallback = window.prompt(
+        "복사 권한이 없습니다. 아래 주소를 선택해 Ctrl+C로 복사하세요.",
+        url
+      );
+
+      if (fallback !== null) {
+        showToast("주소를 선택해 Ctrl+C로 복사해 주세요.");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadChecklist();
+      renderPacking();
+
+      document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        link.addEventListener("click", () => {
+          showToast("새 탭에서 지도가 열립니다.");
+        });
+      });
+    });
+  </script>
+</body>
+</html>
